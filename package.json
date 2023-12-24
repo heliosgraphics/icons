@@ -1,14 +1,14 @@
 {
 	"name": "@heliosgraphics/icons",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"license": "MIT",
 	"private": false,
 	"author": "Chris Puska <03b8@helios.graphics>",
 	"scripts": {
 		"build": "pnpm run figma:export-components && pnpm run build:icons && pnpm run build:meta",
 		"build:icons": "svgo -f ./src/icons -o ./out --config=./svgo.config.js",
+    "publish": "pnpm publish --access public",
 		"build:meta": "ts-node -O '{\"module\": \"commonjs\"}' ./build.meta.ts",
-		"test": "svgo --help",
 		"figma:export-components": "FIGMA_TOKEN=$(grep FIGMA_TOKEN .env | cut -d '=' -f2) figma-export components $(grep FIGMA_FILE .env | cut -d '=' -f2) -O @figma-export/output-components-as-svg --output ./src"
 	},
 	"dependencies": {},
