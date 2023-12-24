@@ -1,0 +1,25 @@
+{
+	"name": "@heliosgraphics/icons",
+	"version": "0.0.1",
+	"license": "MIT",
+	"private": false,
+	"author": "Chris Puska <03b8@helios.graphics>",
+	"scripts": {
+		"build": "pnpm run figma:export-components && pnpm run build:icons && pnpm run build:meta",
+		"build:icons": "svgo -f ./src/icons -o ./out --config=./svgo.config.js",
+		"build:meta": "ts-node -O '{\"module\": \"commonjs\"}' ./build.meta.ts",
+		"test": "svgo --help",
+		"figma:export-components": "FIGMA_TOKEN=$(grep FIGMA_TOKEN .env | cut -d '=' -f2) figma-export components $(grep FIGMA_FILE .env | cut -d '=' -f2) -O @figma-export/output-components-as-svg --output ./src"
+	},
+	"dependencies": {},
+	"devDependencies": {
+		"@figma-export/cli": "^4.7.0",
+		"@figma-export/output-components-as-svg": "^4.7.0",
+		"@svgr/webpack": "^8.1.0",
+		"@types/node": "^20.10.5",
+		"@types/react": "^18.2.45",
+		"svgo": "^3.1.0",
+		"ts-node": "^10.9.2",
+		"typescript": "5.3.3"
+	}
+}
