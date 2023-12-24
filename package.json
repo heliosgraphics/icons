@@ -1,6 +1,6 @@
 {
 	"name": "@heliosgraphics/icons",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"license": "MIT",
 	"private": false,
   "type": "module",
@@ -12,7 +12,7 @@
 	"scripts": {
 		"build": "pnpm run figma:export-components && pnpm run build:icons && pnpm run build:meta",
 		"build:icons": "svgo -f ./src/icons -o ./out --config=./svgo.config.js",
-    "publish:public": "pnpm publish --access public",
+    "npm": "pnpm publish --access public",
 		"build:meta": "ts-node -O '{\"module\": \"commonjs\"}' ./build.meta.ts",
 		"figma:export-components": "FIGMA_TOKEN=$(grep FIGMA_TOKEN .env | cut -d '=' -f2) figma-export components $(grep FIGMA_FILE .env | cut -d '=' -f2) -O @figma-export/output-components-as-svg --output ./src"
 	},
