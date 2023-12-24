@@ -1,9 +1,14 @@
 {
 	"name": "@heliosgraphics/icons",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"license": "MIT",
 	"private": false,
+  "type": "module",
 	"author": "Chris Puska <03b8@helios.graphics>",
+	"files": [
+    "./out/*.*",
+		"meta.ts"
+	],
 	"scripts": {
 		"build": "pnpm run figma:export-components && pnpm run build:icons && pnpm run build:meta",
 		"build:icons": "svgo -f ./src/icons -o ./out --config=./svgo.config.js",
